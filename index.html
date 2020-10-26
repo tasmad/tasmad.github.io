@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tasmad - Form Produk</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			font-family:calibri;
+		}
+
+		body {
+			background-image: url(bg.jpg);
+		}
+		#cardform {
+			background:white;
+			border-radius: 8px;
+			box-shadow: 1px 2px 8px rgba(0,0,0,0.65);
+			height: 670px;
+			margin: 3rem auto 5.1rem auto;
+			width: 800px;
+			padding-top: 50px;
+		}
+		#cardform h2 {
+			font-size: 40px;
+			background:#009fff;
+			color: white;
+		}
+
+		.input{
+			margin-top: 30px;
+			font-size: 17px;
+			font-weight: bold;
+			color: #0091e8;
+		}
+		.input input {
+			display: flex;
+			margin-top: 10px;
+			margin-bottom: 10px;
+			width: 500px;
+			height: 30px;
+			border-top: none;
+			border-left: none;
+			border-right: none;
+			outline: none;
+			text-align: center;
+			font-size: 18px;
+		}
+
+		.aksi {
+			margin-top: 20px;
+		}
+		.aksi input {
+			padding: 10px;
+			width: 200px;
+			margin-top: 20px;
+			margin-right: 50px;
+			margin-left: 50px;
+			text-align: center;
+			border:none;
+			border-radius: 10px;
+			outline: none;
+			background: #02c42c;			
+			cursor: pointer;
+			font-family: calibri;
+			font-size: 17px;
+			font-weight: bold;
+			color: rgba(0,0,0,0.85);
+			color: white;
+		}
+
+		.aksi input:hover {
+			background: -webkit-linear-gradient(#ff9a00, #ff9a00);
+		}
+
+		#hasil {
+			background:white;
+			border-radius: 8px;
+			box-shadow: 1px 2px 8px rgba(0,0,0,0.65);
+			height: 400px;
+			margin: 3rem auto 5.1rem auto;
+			width: 800px;
+			padding-top: 50px;
+		}
+
+		#hasil h2 {
+			font-size: 40px;
+			background: #009fff;
+			color: white;
+		}
+
+		#hasil table {
+			margin-top: 50px;
+			font-size: 20px;
+		}
+		#hasil table tr{
+			height: 30px;
+		}
+
+	</style>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+	<script type="text/javascript">	
+		function simpan(){
+			var ikodeprouduk = document.getElementById('kodeprouduk').value;
+            var inamaproduk = document.getElementById('namaproduk').value;
+			var imerk = document.getElementById('merk').value;
+			var ihargaproduk = document.getElementById('hargaproduk').value;
+			var ivolumeproduk = document.getElementById('volumeproduk').value;
+			var istatusproduk = document.getElementById('statusproduk').value;
+
+				if(ikodeprouduk=="") {
+					swal("Kode Produk Harus Diisi...!!!");
+					return false;
+				}
+
+				if(inamaproduk=="") {
+					swal ("Nama Produk Harus Diisi...!!!");
+					return false;
+				}
+
+				if(imerk=="") {
+					swal ("Merk Harus Diisi...!!!");
+					return false;
+				}
+
+				if(ihargaproduk=="") {
+					swal ("Harga Produk Harus Diisi...!!!");
+					return false;
+				}
+
+				if(ivolumeproduk=="") {
+					swal ("Volume Produk Harus Diisi...!!!");
+					return false;
+				}
+
+				if(istatusproduk=="") {
+					swal ("Status Produk Harus Diisi...!!!");
+					return false;
+				}
+
+				/*var tanya = confirm("Yakin akan menyimpan data ini?");
+				if(tanya == true){
+	                    document.getElementById('o_kodeprouduk').innerHTML = ikodeprouduk;
+	                    document.getElementById('o_namaproduk').innerHTML = inamaproduk;
+	                    document.getElementById('o_merk').innerHTML = imerk;
+	                    document.getElementById('o_hargaproduk').innerHTML = ihargaproduk;
+	                    document.getElementById('o_volumeproduk').innerHTML = ivolumeproduk;
+	                    document.getElementById('o_statusproduk').innerHTML = istatusproduk;
+	                } else {
+	                    return false;
+	                }*/
+
+	            swal({
+					  title: "Apa Kamu Yakin Ingin Menyimpan ini?",
+					  text: "Setelah Disimpan Data Ini Tidak Bisa Diubah...!!!",
+					  icon: "warning",
+					  buttons: true,
+					  buttons: true,
+					})
+					.then((simpan) => {
+					  if (simpan) {
+					    swal("Data Berhasil Disimpan", {
+					      icon: "success",
+					    });
+					    document.getElementById('o_kodeprouduk').innerHTML = ikodeprouduk;
+	                    document.getElementById('o_namaproduk').innerHTML = inamaproduk;
+	                    document.getElementById('o_merk').innerHTML = imerk;
+	                    document.getElementById('o_hargaproduk').innerHTML = ihargaproduk;
+	                    document.getElementById('o_volumeproduk').innerHTML = ivolumeproduk;
+	                    document.getElementById('o_statusproduk').innerHTML = istatusproduk;
+					  } else {
+					    swal("Tidak disimpan");
+					  }
+					});
+		}
+
+		function riset(){
+			document.getElementById('kodeprouduk').value="";
+            document.getElementById('namaproduk').value="";
+			document.getElementById('merk').value="";
+			document.getElementById('hargaproduk').value="";
+			document.getElementById('volumeproduk').value="";
+			document.getElementById('statusproduk').value="";
+
+			document.getElementById('o_kodeprouduk').innerHTML = "";
+			document.getElementById('o_namaproduk').innerHTML = "";
+			document.getElementById('o_merk').innerHTML = "";
+			document.getElementById('o_hargaproduk').innerHTML = "";
+			document.getElementById('o_volumeproduk').innerHTML = "";
+			document.getElementById('o_statusproduk').innerHTML = "";
+
+		}
+
+	</script>
+</head>
+<body>
+	<div id="cardform">
+		<center>
+		<h2>FORM MASTER PRODUK</h2>
+				<form name="formprduk" method="post" action="">
+					<div class="input">
+						<p>Kode Produk <input type="text" name="kodeproduk" id="kodeprouduk" placeholder="Ketikan kode produk..."></p>
+						<p>Nama Produk <input type="text" name="namaproduk" id="namaproduk" placeholder="Ketikan nama produk..."></p>
+						<p>Merk <input type="text" name="merk" id="merk" placeholder="Ketikan Merk..."></p>
+						<p>Harga Produk <input type="number" name="hargaproduk" id="hargaproduk" placeholder="Ketikan harga produk..."></p>
+						<p>Volume Produk <input type="number" name="volumeproduk" id="volumeproduk" placeholder="Ketikan volume produk..." ></p>
+						<p>Status Produk <input type="text" name="statusproduk" id="statusproduk" placeholder="Ketikan status produk..."></p>
+					</div>
+					<div class="aksi">
+						<input type="button" value="Simpan Data" name="btnSimpan" id="btnSimpan" onclick="simpan()">
+						<input type="reset" value="Data Baru" name="btnRiset" id="btnRiset" onclick="riset()">
+					</div>
+				</form>
+		</center>
+	</div>
+
+	<center>
+		<div id="hasil">
+			<h2>HASIL DATA YANG TERSIMPAN</h2>
+			<table border="0">
+				<tr>
+					<td width="200">KODE PRODUK</td>
+					<td width="15">:</td>
+					<td><label id="o_kodeprouduk"></label></td>
+				</tr>
+				<tr>
+					<td>NAMA PRODUK</td>
+					<td>:</td>
+					<td><label id="o_namaproduk"></label></td>
+				</tr>
+				<tr>
+					<td>MERK</td>
+					<td>:</td>
+					<td><label id="o_merk"></label></td>
+				</tr>
+				<tr>
+					<td>HARGA PRODUK</td>
+					<td>:</td>
+					<td><label id="o_hargaproduk"></label></td>
+				</tr>
+				<tr>
+					<td>VOLUME PRODUK</td>
+					<td>:</td>
+					<td><label id="o_volumeproduk"></label></td>
+				</tr>
+				<tr>
+					<td>STATUS PRODUK</td>
+					<td>:</td>
+					<td><label id="o_statusproduk"></label></td>
+				</tr>
+			</table>
+		</div>
+	</center>
+</body>
+</html>
