@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tasmad - Kalkulator Online</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			font-family:calibri;
+		}
+
+		body {
+			background-image: linear-gradient(#ffab00,#ff6a00);
+		}
+		#cardform {
+			background:white;
+			border-radius: 8px;
+			box-shadow: 1px 2px 8px rgba(0,0,0,0.65);
+			height: 550px;
+			margin: 3rem auto 5.1rem auto;
+			width: 700px;
+			padding-top: 50px;
+		}
+		#cardform h2 {
+			font-size: 40px;
+			background:#ffab00;
+			color: white;
+		}
+
+		.input{
+			margin-top: 30px;
+			font-size: 17px;
+			font-weight: bold;
+			color: #0091e8;
+		}
+		.input input {
+			display: flex;
+			margin-top: 10px;
+			margin-bottom: 10px;
+			width: 500px;
+			height: 30px;
+			border-top: none;
+			border-left: none;
+			border-right: none;
+			outline: none;
+			text-align: center;
+			font-size: 18px;
+		}
+
+		.aksi {
+			margin-top: 20px;
+		}
+		.aksi input {
+			padding: 10px;
+			width: 200px;
+			margin-top: 20px;
+			margin-right: 50px;
+			margin-left: 50px;
+			text-align: center;
+			border:none;
+			border-radius: 10px;
+			outline: none;
+			background: #02c42c;			
+			cursor: pointer;
+			font-family: calibri;
+			font-size: 17px;
+			font-weight: bold;
+			color: rgba(0,0,0,0.85);
+			color: white;
+		}
+
+		.aksi input:hover {
+			background: -webkit-linear-gradient(#ff9a00, #ff9a00);
+		}
+
+		#hasil {
+			background:white;
+			border-radius: 8px;
+			box-shadow: 1px 2px 8px rgba(0,0,0,0.65);
+			height: 400px;
+			margin: 3rem auto 5.1rem auto;
+			width: 800px;
+			padding-top: 50px;
+		}
+
+		#hasil h2 {
+			font-size: 40px;
+			background: #ffab00;
+			color: white;
+		}
+
+		#hasil p {
+			font-size: 70px;
+			margin-top: 120px;
+			font-weight: bold;
+			color: #ffab00;
+		}
+
+	</style>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+	<script type="text/javascript">	
+		function tambah(){
+			var input1=document.getElementById("input1").value;
+			var input2=document.getElementById("input2").value;
+			var input3=document.getElementById("input3").value;
+			var tambah=parseInt(input1)+parseInt(input2)+parseInt(input3);
+
+			if (input1==0) {
+				tambah= parseInt(input2)+parseInt(input3);
+			} else if(input2==0){
+				tambah= parseInt(input1)+parseInt(input3);
+			} else if(input3==0){
+				tambah= parseInt(input1)+parseInt(input2);
+			} else {
+				tambah= parseInt(input1)+parseInt(input2)+parseInt(input3);
+			}
+
+				swal({
+					})
+					  if (tambah) {
+					    swal("Hasil perhitungan PERTAMBAHAN untuk input nilai ke-1= "+input1+", input nilai ke-2= "+input2+" dan input nilai ke-3= "+input3+" adalah= "+tambah, {
+					      icon: "success",
+					    });
+					    document.getElementById('hasil_kalkulator').innerHTML = tambah;
+					}
+		}
+
+		function kurang(){
+			var input1=document.getElementById("input1").value;
+			var input2=document.getElementById("input2").value;
+			var input3=document.getElementById("input3").value;
+			var kurang="";
+
+			if (input1==0) {
+				kurang= parseInt(input2)-parseInt(input3);
+			} else if(input2==0){
+				kurang= parseInt(input1)-parseInt(input3);
+			} else if(input3==0){
+				kurang= parseInt(input1)-parseInt(input2);
+			} else {
+				kurang= parseInt(input1)-parseInt(input2)-parseInt(input3);
+			}
+
+				swal({
+					})
+					  if (kurang) {
+					    swal("Hasil perhitungan PENGURANGAN untuk input nilai ke-1= "+input1+", input nilai ke-2= "+input2+" dan input nilai ke-3= "+input3+" adalah= "+kurang, {
+					      icon: "success",
+					    });
+					    document.getElementById('hasil_kalkulator').innerHTML = kurang;		    
+					}
+		}
+
+		function kali(){
+			var input1=document.getElementById("input1").value;
+			var input2=document.getElementById("input2").value;
+			var input3=document.getElementById("input3").value;
+			var kali="";
+
+			if (input1==0) {
+				kali= parseInt(input2)*parseInt(input3);
+			} else if(input2==0){
+				kali= parseInt(input1)*parseInt(input3);
+			} else if(input3==0){
+				kali= parseInt(input1)*parseInt(input2);
+			} else {
+				kali= parseInt(input1)*parseInt(input2)*parseInt(input3);
+			}
+				swal({
+					})
+					  if (kali) {
+					    swal("Hasil perhitungan PERKALIAN untuk input nilai ke-1= "+input1+", input nilai ke-2= "+input2+" dan input nilai ke-3= "+input3+" adalah= "+kali, {
+					      icon: "success",
+					    });
+					    document.getElementById('hasil_kalkulator').innerHTML = kali;
+					}
+		}
+			
+
+		function bagi(){
+			var input1=document.getElementById("input1").value;
+			var input2=document.getElementById("input2").value;
+			var input3=document.getElementById("input3").value;
+			var bagi="";
+
+			if (input1==0) {
+				bagi= parseFloat(input2)/parseFloat(input3);
+			} else if(input2==0){
+				bagi= parseFloat(input1)/parseFloat(input3);
+			} else if(input3==0){
+				bagi= parseFloat(input1)/parseFloat(input2);
+			} else {
+				bagi= parseFloat(input1)/parseFloat(input2)/parseFloat(input3);
+			}
+				swal({
+					})
+					  if (bagi) {
+					    swal("Hasil perhitungan PEMBAGIAN untuk input nilai ke-1= "+input1+", input nilai ke-2= "+input2+" dan input nilai ke-3= "+input3+" adalah= "+bagi, {
+					      icon: "success",
+					    });
+					    document.getElementById('hasil_kalkulator').innerHTML = bagi;
+					}
+		}
+
+	</script>
+</head>
+<body>
+	<div id="cardform">
+		<center>
+		<h2>KALKULATOR ONLINE</h2>
+				<form name="formprduk" method="post" action="">
+					<div class="input">
+						<p>Masukan Angka 1 <input type="text" name="input1" id="input1" placeholder="Ketikan Angka ke-1..."></p>
+						<p>Masukan Angka 2<input type="text" name="input2" id="input2" placeholder="Ketikan Angka ke-2..."></p>
+						<p>Masukan Angka 3<input type="text" name="input3" id="input3" placeholder="Ketikan Angka ke-3..."></p>
+					</div>
+					<div class="aksi">
+						<input type="button" value="Tambah" name="btnTambah" id="btnTambah" onclick="tambah()">
+						<input type="button" value="Kurang" name="btnKurang" id="btnKurang" onclick="kurang()">
+						<input type="button" value="Kali" name="btnKali" id="btnKali" onclick="kali()">
+						<input type="button" value="Bagi" name="btnBagi" id="btnBagi" onclick="bagi()">
+					</div>
+				</form>
+		</center>
+	</div>
+
+	<center>
+		<div id="hasil">
+			<h2>HASIL KALKULATOR ONLINE</h2>
+				<p id="hasil_kalkulator"></p>
+		</div>
+	</center>
+</body>
+</html>
